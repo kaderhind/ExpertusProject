@@ -22,11 +22,6 @@ export class CandidatsComponent implements OnInit {
 
   ngOnInit() {
   	
-  	/*this.http.get('http://localhost:8080/chercherCandidats?mc=M&&size=1&&page=0').subscribe(data=>{
-  		this.pageCandidats=data;
-  	},err=>{
-  		console.log(err);
-  	})*/
   }
 
   doSearch(){

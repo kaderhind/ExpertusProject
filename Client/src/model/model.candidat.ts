@@ -5,6 +5,7 @@ export class Candidat{
 	email:string="";
 	telephone:string="";
 	dateNaissance:Date;
+	
 	constructor(){
 	}
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Candidat } from '../../model/model.candidat';
+import { CandidatsService } from '../../services/candidats.service';
 
 @Component({
   selector: 'app-new-candidat',
@@ -7,22 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCandidatComponent implements OnInit {
 
-  //candidat:Candidat=new Candidat();
+  candidat:Candidat=new Candidat();
   mode:number=1;
-  constructor() { }
+  constructor(public candidatsService: CandidatsService) { }
 
   ngOnInit() {
   }
 
-   /*saveCandidat(){
-  	this.candidatService.saveCandidat(this.candidat)
-  	.subscribe(data=>{
+  saveCandidat(){
+  	this.candidatsService.saveCandidat(this.candidat)
+  	.subscribe((data:Candidat)=>{
   		this.candidat=data;
   		this.mode=2;
   	},err=>{
   		console.log(err);
   	});
-  }*/
+  }
 
+  reset(){
+    this.candidat=null;
+    this.mode=1;
+  }
 
 }

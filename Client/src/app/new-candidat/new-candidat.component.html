@@ -1,10 +1,4 @@
-<div>
-	
-	<p>COCO</p>
-
-</div>
-
-<!--<div class="container spacer">
+<div class="container spacer">
 	<div class="panel panel-primary" *ngIf="mode==1">
 		<div class="panel-heading"> Nouveau Candidat</div>
 		<div class="panel-body">
@@ -27,7 +21,7 @@
 				</div>
 				<div class="form-group">
 					<label class="control-labe">Date Naissance:</label>
-					<input class="form-control" type="date" [(ngModel)]="candidat.nom">
+					<input class="form-control" type="date" [(ngModel)]="candidat.dateNaissance">
 				</div>
 				<button class="btn btn-primary" (click)="saveCandidat()">Save</button>
 			</div>
@@ -39,7 +33,7 @@
 	<div class="panel panel-primary" *ngIf="mode==2">
 		<div class="panel-heading"> Confirmation</div>
 		<div class="panel-body">
-			<div *ngIf="mode==1">
+			<div>
 				<div class="form-group">
 					<label class="control-labe">Nom:</label>
 					<label>{{candidat.nom}}</label>
@@ -60,9 +54,9 @@
 					<label class="control-labe">Date Naissance:</label>
 					<label>{{candidat.dateNaissance}}</label>
 				</div>
-				<button class="btn btn-primary" (click)="mode=1">Nouveau Candidat</button>
+				<button class="btn btn-primary" (click)="reset()">Nouveau Candidat</button>
 			</div>
 
 		</div>
 	</div>
-</div>-->
+</div>
