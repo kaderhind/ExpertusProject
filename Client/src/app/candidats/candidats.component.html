@@ -13,12 +13,16 @@
 					<th>nom</th>
 					<th>prenom</th>
 					<th>email</th>
+					<th></th>
+					<th></th>
 				</tr>
 				<tr *ngFor="let c of pageCandidats?.content">
 					<td>{{c.id}}</td>
 					<td>{{c.nom}}</td>
 					<td>{{c.prenom}}</td>
 					<td>{{c.email}}</td>
+					<td><a (click)="onEditCandidat(c.id)" class="clickable">Edit</a></td>
+					<td><a (click)="onDeleteCandidat(c)" class="clickable">Delete</a></td>
 				</tr>
 			</table>
 

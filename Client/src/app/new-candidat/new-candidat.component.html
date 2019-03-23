@@ -2,7 +2,6 @@
 	<div class="panel panel-primary" *ngIf="mode==1">
 		<div class="panel-heading"> Nouveau Candidat</div>
 		<div class="panel-body">
-			<div *ngIf="mode==1">
 				<div class="form-group">
 					<label class="control-labe">Nom:</label>
 					<input class="form-control" type="text" [(ngModel)]="candidat.nom">
@@ -24,8 +23,6 @@
 					<input class="form-control" type="date" [(ngModel)]="candidat.dateNaissance">
 				</div>
 				<button class="btn btn-primary" (click)="saveCandidat()">Save</button>
-			</div>
-
 		</div>
 	</div>
 

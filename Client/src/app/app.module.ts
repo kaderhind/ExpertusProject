@@ -9,10 +9,12 @@ import { AboutComponent } from './about/about.component';
 import { HttpClientModule} from '@angular/common/http';
 import { NewCandidatComponent } from './new-candidat/new-candidat.component';
 import { CandidatsService } from '../services/candidats.service';
+import { EditCandidatComponent } from './edit-candidat/edit-candidat.component';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'candidats', component: CandidatsComponent },
+  { path: 'editCandidat/:id', component: EditCandidatComponent },
   { path: 'new-contact', component: NewCandidatComponent},
   { path: '',
     redirectTo: '/about',
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     CandidatsComponent,
     AboutComponent,
-    NewCandidatComponent
+    NewCandidatComponent,
+    EditCandidatComponent
   ],
   imports: [
     BrowserModule,
