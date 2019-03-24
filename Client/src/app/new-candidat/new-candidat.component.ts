@@ -10,6 +10,13 @@ import { CandidatsService } from '../../services/candidats.service';
 export class NewCandidatComponent implements OnInit {
 
   candidat:Candidat=new Candidat();
+  CadidatStatus=['skypeInterview',
+           'reviewSkypeInterview',
+           'sendingChallenge',
+           'reviewChallenge',
+           'secondInterview',
+           'rejected','hired'];
+
   mode:number=1;
   constructor(public candidatsService: CandidatsService) { }
 
