@@ -13,6 +13,7 @@
 					<th>nom</th>
 					<th>prenom</th>
 					<th>email</th>
+					<th>Status</th>
 					<th></th>
 					<th></th>
 				</tr>
@@ -21,6 +22,7 @@
 					<td>{{c.nom}}</td>
 					<td>{{c.prenom}}</td>
 					<td>{{c.email}}</td>
+					<td>{{c.status}}</td>
 					<td><a (click)="onEditCandidat(c.id)" class="clickable">Edit</a></td>
 					<td><a (click)="onDeleteCandidat(c)" class="clickable">Delete</a></td>
 				</tr>

@@ -6,7 +6,7 @@ export class Candidat{
 	email:string="";
 	telephone:string="";
 	dateNaissance:Date;
-	
+	status:string="skypeInterview";
 	constructor(){
 	}
 
