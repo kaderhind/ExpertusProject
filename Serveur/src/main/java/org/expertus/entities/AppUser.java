@@ -28,6 +28,18 @@ public class AppUser {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<AppRole> roles = new ArrayList<>();
 	
+	public AppUser(Long id, String username, String password, Collection<AppRole> roles) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.roles = roles;
+	}
+	
+	public AppUser() {
+		
+	}
+
 	public String getUsername() {
 		return username;
 	}
