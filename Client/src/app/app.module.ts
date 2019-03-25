@@ -10,14 +10,16 @@ import { HttpClientModule} from '@angular/common/http';
 import { NewCandidatComponent } from './new-candidat/new-candidat.component';
 import { CandidatsService } from '../services/candidats.service';
 import { EditCandidatComponent } from './edit-candidat/edit-candidat.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'candidats', component: CandidatsComponent },
   { path: 'editCandidat/:id', component: EditCandidatComponent },
   { path: 'new-contact', component: NewCandidatComponent},
+  { path: 'login', component: LoginComponent},
   { path: '',
-    redirectTo: '/about',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     CandidatsComponent,
     AboutComponent,
     NewCandidatComponent,
-    EditCandidatComponent
+    EditCandidatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

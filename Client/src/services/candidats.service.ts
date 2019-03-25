@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient , HttpHeaders } from '@angular/common/http';
 import { Candidat } from 'src/model/model.candidat';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class CandidatsService {
+
+	private host: string='http://localhost:8080';
+	private jwtToken: string;
+	private roles:Array<any>=[];
 
   constructor(public http:HttpClient) { }
 
@@ -29,6 +36,8 @@ export class CandidatsService {
 	getCandidat(id:number):Observable<any>{
 		return this.http.get("http://localhost:8080/candidats/"+id);
 	}
+
+
 
 	
 }
