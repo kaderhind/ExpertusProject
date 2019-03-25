@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../../services/authentification.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,7 +8,7 @@ import { AuthentificationService } from '../../services/authentification.service
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authentificationService:AuthentificationService) { }
+  constructor(private authentificationService:AuthentificationService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
   	this.authentificationService.login(data).subscribe(resp =>{
   		let jwtToken=resp.headers.get('Authorization');
   		this.authentificationService.saveToken(jwtToken);
+      if(this.authentificationService.isAdmin())
+        this.router.navigateByUrl("candidats");
+      else
+        this.router.navigateByUrl("about");
       console.log(jwtToken);
   	}, err=>{
   		console.log(err);

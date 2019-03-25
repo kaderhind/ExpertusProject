@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../services/authentification.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -7,15 +9,16 @@ import { AuthentificationService } from '../services/authentification.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'candidatureClient';
-  candidat={nom:'hind', email:'hindkader@gmail.com'};
 
-   ngOnInit() {
-   	
+
+   
+
+  constructor(private authentificationService:AuthentificationService, private router:Router ){}
+
+  ngOnInit() {
+   	this.authentificationService.loadToken();
   }
-
-  constructor(private authentificationService:AuthentificationService ){}
-
+  
   isAdmin(){
     return this.authentificationService.isAdmin();
   }
@@ -23,8 +26,15 @@ export class AppComponent implements OnInit{
   isCandidat(){
     return this.authentificationService.isCandidat();
   }
+
   isAuthenticated(){
   	return this.authentificationService.isAuthenticated();
+  }
+
+  logOut(){
+  	 this.authentificationService.logOut();
+  	 return this.router.navigateByUrl("login");
+
   }
 
 }

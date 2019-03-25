@@ -40,7 +40,23 @@ export class AuthentificationService {
     }
 
     isAuthenticated(){
-      return this.roles.length>0;
+      return this.roles!=undefined;
+    }
+
+    loadToken(){
+      this.jwtToken=localStorage.getItem('token');
+      this.parseJWT();
+    }
+
+    logOut(){
+      localStorage.removeItem('token');
+      this.initParams();
+    }
+
+    initParams(){
+      this.jwtToken=undefined;
+      this.roles=undefined;
+      this.username=undefined;
     }
 
 }
