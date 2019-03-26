@@ -2,9 +2,9 @@
 <div   class="container">
 	<div *ngIf="isAuthenticated()">
 		<div class="container spacer">
-		   <button *ngIf="isCandidat()" routerLink ="/about" class="btn btn-primary"> about</button>
+		   <button *ngIf="isCandidat()" routerLink ="/profil-candidat" class="btn btn-primary"> Profil</button>
 		   <button *ngIf="isAdmin()" routerLink="/candidats" class="btn btn-primary"> Liste candidats</button>
-		   <button *ngIf="isAdmin()" routerLink="/new-contact" class="btn btn-primary"> Ajouter Candidat</button>
+		   <button *ngIf="isAdmin()" routerLink="/new-candidat" class="btn btn-primary"> Ajouter Candidat</button>
 		</div>
 	</div>
 	<div>

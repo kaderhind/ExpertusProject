@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       if(this.authentificationService.isAdmin())
         this.router.navigateByUrl("candidats");
       else
-        this.router.navigateByUrl("about");
+        this.router.navigateByUrl("profil-candidat");
       console.log(jwtToken);
   	}, err=>{
   		console.log(err);

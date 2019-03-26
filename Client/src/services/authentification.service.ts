@@ -8,7 +8,7 @@ import { JwtHelperService  } from '@auth0/angular-jwt';
 export class AuthentificationService {
 
 	private host: string='http://localhost:8080';
-	private jwtToken: string;
+	public jwtToken: string;
 	private roles:Array<any>=[];
   username: string;
   	constructor(private http:HttpClient) { }
@@ -27,6 +27,7 @@ export class AuthentificationService {
     parseJWT(){
         let jwtHelper = new JwtHelperService();
         let jwtObject = jwtHelper.decodeToken(this.jwtToken);
+        console.log(jwtObject);
         this.username = jwtObject.sub;
         this.roles = jwtObject.roles;
     }

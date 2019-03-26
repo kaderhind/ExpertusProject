@@ -11,12 +11,14 @@ import { NewCandidatComponent } from './new-candidat/new-candidat.component';
 import { CandidatsService } from '../services/candidats.service';
 import { EditCandidatComponent } from './edit-candidat/edit-candidat.component';
 import { LoginComponent } from './login/login.component';
+import { CandidatProfilComponent } from './candidat-profil/candidat-profil.component';
 
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'candidats', component: CandidatsComponent },
   { path: 'editCandidat/:id', component: EditCandidatComponent },
-  { path: 'new-contact', component: NewCandidatComponent},
+  { path: 'new-candidat', component: NewCandidatComponent},
+  { path: 'profil-candidat', component: CandidatProfilComponent},
   { path: 'login', component: LoginComponent},
   { path: '',
     redirectTo: '/login',
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     AboutComponent,
     NewCandidatComponent,
     EditCandidatComponent,
-    LoginComponent
+    LoginComponent,
+    CandidatProfilComponent
   ],
   imports: [
     BrowserModule,

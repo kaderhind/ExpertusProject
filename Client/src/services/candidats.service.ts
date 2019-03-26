@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders } from '@angular/common/http';
 import { Candidat } from 'src/model/model.candidat';
 import {Observable} from 'rxjs';
-
+import {AuthentificationService} from './authentification.service';
 
 
 @Injectable({
@@ -14,7 +14,7 @@ export class CandidatsService {
 	private jwtToken: string;
 	private roles:Array<any>=[];
 
-  constructor(public http:HttpClient) { }
+  constructor(private http:HttpClient, private authentificationService:AuthentificationService) { }
 
 	getCandidats(motCle:string, page:number, size:number){
 
@@ -30,13 +30,17 @@ export class CandidatsService {
 	}
 
 	deleteCandidat(id:number){
-		return this.http.delete("http://localhost:8080/candidats/"+id);
+		let headers=new HttpHeaders({'authorization':this.authentificationService.jwtToken});
+		return this.http.delete("http://localhost:8080/candidats/"+id,{headers:headers});
 	}
 
 	getCandidat(id:number):Observable<any>{
 		return this.http.get("http://localhost:8080/candidats/"+id);
 	}
 
+	getCandidatByusername(){
+		return this.http.get("http://localhost:8080/candidatProfil/"+this.authentificationService.username);
+	}
 
 
 	
