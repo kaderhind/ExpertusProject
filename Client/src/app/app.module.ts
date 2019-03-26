@@ -12,7 +12,7 @@ import { CandidatsService } from '../services/candidats.service';
 import { EditCandidatComponent } from './edit-candidat/edit-candidat.component';
 import { LoginComponent } from './login/login.component';
 import { CandidatProfilComponent } from './candidat-profil/candidat-profil.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'candidats', component: CandidatsComponent },
@@ -41,7 +41,8 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
    // AppRoutingModule
   ],
   providers: [CandidatsService],
