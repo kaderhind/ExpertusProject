@@ -1,17 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--<div   class="container">
-	<div *ngIf="isAuthenticated()">
-		<div class="container spacer">
-		   <button *ngIf="isCandidat()" routerLink ="/profil-candidat" class="btn btn-primary"> Profil</button>
-		   <button *ngIf="isAdmin()" routerLink="/candidats" class="btn btn-primary"> Liste candidats</button>
-		   <button *ngIf="isAdmin()" routerLink="/new-candidat" class="btn btn-primary"> Ajouter Candidat</button>
-		</div>
-	</div>
-	<div>
-		<button *ngIf="!isAuthenticated()" routerLink="/login" class="btn btn-primary"> Login </button>
-		<button *ngIf="isAuthenticated()" (click)="logOut()" class="btn btn-primary"> Logout </button>
-	</div>
-</div> -->
 <<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -28,6 +14,5 @@
     </ul>
   </div>
 </nav>
-<div class="container">
-	<router-outlet></router-outlet>
-</div>
+
+<router-outlet></router-outlet>

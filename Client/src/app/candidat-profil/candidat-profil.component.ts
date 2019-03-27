@@ -30,11 +30,6 @@ export class CandidatProfilComponent implements OnInit {
   constructor(private candidatsService:CandidatsService ) { }
 
   ngOnInit() {
-
-    //console.log("helllpooo");
-    //this.candidat.status="hired";
-    //this.activateStatus();
-    //console.log(this.candidatStatus);
   	this.candidatsService.getCandidatByusername()
   	 .subscribe((data:any)=>{
       this.candidat=data;

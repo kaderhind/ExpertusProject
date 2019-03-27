@@ -34,13 +34,14 @@
 						</a>
 					</td>
 				</tr>
-			</table>
-
+			</table> 
+		</div>	
+		<div class="panel-footer">
 			<ul class="nav nav-pills">
 				<li class="nav-item" [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages; let i=index" class="clickable">
 					<a class="nav-link" (click)="gotoPage(i)">{{i}}</a>
 				</li>
-		    </ul> 
-		</div>	
+		    </ul>
+		</div>
 	</div>
 </div>
