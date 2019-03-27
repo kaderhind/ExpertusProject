@@ -10,12 +10,16 @@ import { CandidatsService } from '../../services/candidats.service';
 export class NewCandidatComponent implements OnInit {
 
   candidat:Candidat=new Candidat();
-  CadidatStatus=['skypeInterview',
-           'reviewSkypeInterview',
-           'sendingChallenge',
-           'reviewChallenge',
-           'secondInterview',
-           'rejected','hired'];
+
+  CandidatStatus:any[]=[
+    { "status":"skypeInterview", "name":"Rencontre Skype" },
+    { "status":"reviewSkypeInterview","name":"Revue en interne"},
+    { "status":"sendingChallenge","name":"Envoi du défi" },
+    { "status":"reviewChallenge", "name":"Revue du défi" },
+    { "status":"secondInterview", "name":"2em Rencontre" },
+    { "status":"rejected", "name":"Rejeté"},
+    { "status":"hired", "name":"Accepté" }
+  ]
 
   mode:number=1;
   constructor(public candidatsService: CandidatsService) { }

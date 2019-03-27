@@ -19,13 +19,17 @@
 					<input class="form-control" type="text" [(ngModel)]="candidat.email">
 				</div>
 				<div class="form-group">
+					<label class="control-labe">Profil:</label>
+					<input class="form-control" type="text" [(ngModel)]="candidat.profil">
+				</div>
+				<div class="form-group">
 					<label class="control-labe">Date Naissance:</label>
 					<input class="form-control" type="date" [(ngModel)]="candidat.dateNaissance">
 				</div>
 				<div class="form-group">
 					<label class="control-label"> Status: </label>
 					<select class="form-control" [(ngModel)]="candidat.status">
-						<option *ngFor="let p of CadidatStatus" [value]="p">{{p}}</option>
+						<option *ngFor="let p of CandidatStatus" [value]="p.status">{{p.name}}</option>
 					</select>
 				</div>
 				<button class="btn btn-primary" (click)="saveCandidat()">Save</button>
@@ -37,6 +41,10 @@
 		<div class="panel-heading"> Confirmation</div>
 		<div class="panel-body">
 			<div>
+				<div class="form-group">
+					<label class="control-labe">Profil:</label>
+					<label>{{candidat.profil}}</label>
+				</div>
 				<div class="form-group">
 					<label class="control-labe">Nom:</label>
 					<label>{{candidat.nom}}</label>
@@ -56,10 +64,6 @@
 				<div class="form-group">
 					<label class="control-labe">Date Naissance:</label>
 					<label>{{candidat.dateNaissance}}</label>
-				</div>
-				<div class="form-group">
-					<label class="control-labe">Date Naissance:</label>
-					<label>{{candidat.status}}</label>
 				</div>
 				<button class="btn btn-primary" (click)="reset()">Nouveau Candidat</button>
 			</div>

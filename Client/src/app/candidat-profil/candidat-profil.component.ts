@@ -17,7 +17,7 @@ export class CandidatProfilComponent implements OnInit {
    2:processed,
    3:failed
   **/
-  candidatStatus: any[]=[
+  candidatStatus:any[]=[
     { "status":"skypeInterview", "etat":0 },
     { "status":"reviewSkypeInterview", "etat":0 },
     { "status":"sendingChallenge", "etat":0 },
@@ -42,10 +42,7 @@ export class CandidatProfilComponent implements OnInit {
 
   getClass(etat){
 
-    console.log("+++++++++++ etat +++++++++++"+etat);
-
     switch(etat){
-
       case 0: return "notProcessed";
       case 1: return "inProgress";
       case 2: return "processed";
