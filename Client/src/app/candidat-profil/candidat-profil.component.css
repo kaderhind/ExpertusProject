@@ -1,0 +1,28 @@
+.notProcessed{
+	fill:rgb(220,220,220);
+	stroke:black;
+	stroke-width:2;
+	opacity:0.5;
+}
+
+.inProgress{
+	fill:rgb(255,255,0);
+	stroke:black;
+	stroke-width:2;
+	opacity:0.5;
+}
+
+.processed{
+	fill:rgb(50,205,50);
+	stroke:black;
+	stroke-width:2;
+	opacity:0.5;
+}
+
+
+.faild{
+	fill:rgb(178,34,34);
+	stroke:black;
+	stroke-width:2;
+	opacity:0.5;
+}
