@@ -24,8 +24,15 @@ export class CandidatsComponent implements OnInit {
   constructor(public http:HttpClient, public candidatsService:CandidatsService,
     public router:Router) { }
 
-  ngOnInit() {
-  	
+  ngOnInit() {	
+    this.candidatsService.getCandidats(this.motCle,this.currentPage,this.size)
+    .subscribe((data:any)=>{
+      this.pageCandidats=data;
+      this.pages=new Array(data.totalPages);
+      console.log(this.pages);
+    },err=>{
+      console.log(err)
+    });
   }
 
   doSearch(){

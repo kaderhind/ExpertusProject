@@ -31,17 +31,17 @@ export class CandidatProfilComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("helllpooo");
-    this.candidat.status="hired";
-    this.activateStatus();
-    console.log(this.candidatStatus);
-  	/*this.candidatsService.getCandidatByusername()
+    //console.log("helllpooo");
+    //this.candidat.status="hired";
+    //this.activateStatus();
+    //console.log(this.candidatStatus);
+  	this.candidatsService.getCandidatByusername()
   	 .subscribe((data:any)=>{
       this.candidat=data;
       this.activateStatus();
     },err=>{
       console.log(err)
-    });*/
+    });
 
   }
 

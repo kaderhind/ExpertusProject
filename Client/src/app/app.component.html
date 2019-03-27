@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div   class="container">
+<!--<div   class="container">
 	<div *ngIf="isAuthenticated()">
 		<div class="container spacer">
 		   <button *ngIf="isCandidat()" routerLink ="/profil-candidat" class="btn btn-primary"> Profil</button>
@@ -11,6 +11,23 @@
 		<button *ngIf="!isAuthenticated()" routerLink="/login" class="btn btn-primary"> Login </button>
 		<button *ngIf="isAuthenticated()" (click)="logOut()" class="btn btn-primary"> Logout </button>
 	</div>
+</div> -->
+<<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Expertus</a>
+    </div>
+    <ul  *ngIf="isAuthenticated()" class="nav navbar-nav">
+      <li *ngIf="isCandidat()" routerLink ="/profil-candidat" class="active"><a href="#">Home</a></li>
+      <li><a *ngIf="isAdmin()" routerLink="/candidats"> Liste candidats </a></li>
+      <li><a *ngIf="isAdmin()" routerLink="/new-candidat"> Ajouter Candidat </a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a *ngIf="isAuthenticated()" (click)="logOut()"> <span class="glyphicon glyphicon-user"></span> Logout</a></li>
+      <li><a *ngIf="!isAuthenticated()" routerLink="/login" ><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+	<router-outlet></router-outlet>
 </div>
-
-<router-outlet></router-outlet>
