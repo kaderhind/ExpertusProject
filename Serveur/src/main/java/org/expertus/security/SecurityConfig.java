@@ -32,11 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	        http.authorizeRequests().antMatchers("/").permitAll();
 //            .authorizeRequests().antMatchers("/console/**").permitAll();
-	        http.authorizeRequests().antMatchers("/login/**","/candidats/**","/chercherCandidats","/candidatProfil/**","/h2-console/**").permitAll();
-	        //http.authorizeRequests().antMatchers(HttpMethod.POST,"/candidats/**").hasAuthority("ADMIN");
-	       // http.authorizeRequests().antMatchers(HttpMethod.PUT,"/candidats/**").hasAuthority("ADMIN");
-	       // http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/candidats/**").hasAuthority("ADMIN");
-	        http.authorizeRequests().anyRequest().authenticated();
+	    //    http.authorizeRequests().antMatchers("/login/**").permitAll();
+	    //    http.authorizeRequests().antMatchers("/candidatProfil/**").hasAuthority("CANDIDAT");
+	     //   http.authorizeRequests().antMatchers("/candidats/**","/chercherCandidats").hasAuthority("ADMIN");
+	       // http.authorizeRequests().anyRequest().authenticated();
             http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
             http.addFilterBefore(new JWTAuthorizationFiler(), UsernamePasswordAuthenticationFilter.class);
 		

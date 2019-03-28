@@ -55,10 +55,6 @@ public class CandidatRestServiceTest {
 	@Mock
 	private CandidatRepository candidatRepository;
 	
-	@Mock
-	private AppUserRepository appUserRepository;
-	@Mock
-	private AccountService accountService;
 	
 	private DateFormat df= new SimpleDateFormat("dd/MM/yyyy");
 	@Before
