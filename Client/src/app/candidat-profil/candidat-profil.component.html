@@ -11,13 +11,21 @@
 				<svg width="1000" height="1000" *ngIf="candidat.status!='rejected' ; else rejectedBlock" >
 			  		<rect x="50" y="20" rx="20" ry="20" width="160" height="150" [ngClass]="getClass(candidatStatus[0].etat)" />
 
-			  		<text x="70" y="85" style="font: bold 13px sans-serif; fill:rgb(0,0,255);">Rencontre par skype</text>
+			  		<text x="70" y="85"  class ="text">
+			  			<tspan x="60" dy="0">Rencontre</tspan>
+						<tspan x="80" dy="1.2em">par</tspan>
+						<tspan x="70" dy="1.2em">skype</tspan>
+			  		</text>
 					<path d="M300,110 L300,70 L330,90 z" fill="black" />
 			    	<line x1="211" y1="90" x2="300" y2="90" stroke="#000" stroke-width="5" 
 			    		marker-end="url(#arrow)" />
 
 			   		<polygon points="330,90  370,20  500,20  540,90 500,160 370,160" [ngClass]="getClass(candidatStatus[1].etat)" />
-			        	<text x="380" y="100"  style="font: bold 13px sans-serif; fill:rgb(0,0,255);">Revue en interne</text> 
+			        	<text x="370" y="25"  class ="text">
+			        		<tspan x="400" dy="1.2em">Revue</tspan>
+							<tspan x="420" dy="1.2em">en</tspan>
+							<tspan x="400" dy="1.2em">interne</tspan>
+			        	</text> 
 
 			        <path d="M629,110 L629,70 L659,90 z" fill="black" />
 			    	<line x1="540" y1="90" x2="629" y2="90" stroke="#000" stroke-width="5" 
