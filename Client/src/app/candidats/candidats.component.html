@@ -22,7 +22,7 @@
 					<td>{{c.nom}}</td>
 					<td>{{c.prenom}}</td>
 					<td>{{c.email}}</td>
-					<td>{{c.status}}</td>
+					<td> <span  [ngClass]="getClass(c.status)">{{c.status}}</span></td>
 					<td>
 						<a  class="btn btn-info" (click)="onEditCandidat(c.id)" >
 							<span class="glyphicon glyphicon-pencil"></span>

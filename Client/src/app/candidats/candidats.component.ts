@@ -70,12 +70,21 @@ export class CandidatsComponent implements OnInit {
       this.candidatsService.deleteCandidat(c.id)
       .subscribe(data=>{
       this.pageCandidats.content.splice(
-        this.pageCandidats.content.indexOf(c),1
-        );
+        this.pageCandidats.content.indexOf(c),1);
     },err=>{
       console.log(err);
     })
 
     }
+  }
+
+  getClass(status:string){
+
+    switch(status){
+      case 'hired' : return 'label label-success';
+      case 'rejected': return 'label label-danger';
+      default : return 'label label-default';
+    }
+
   }
 }
