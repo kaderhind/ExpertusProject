@@ -2,6 +2,9 @@ package org.expertus.entities;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -14,7 +17,6 @@ import lombok.ToString;*/
 import lombok.*;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor @ToString
 public class AppUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +30,11 @@ public class AppUser {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Collection<AppRole> roles = new ArrayList<>();
 	
+	@JsonManagedReference
+	@OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL)
+	private Candidat candidat;
+	
+	
 	public AppUser(Long id, String username, String password, Collection<AppRole> roles) {
 		super();
 		this.id = id;
@@ -36,6 +43,22 @@ public class AppUser {
 		this.roles = roles;
 	}
 	
+	public AppUser(String username, String password) {
+		super();
+		
+		this.username = username;
+		this.password = password;
+	}
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public AppUser() {
 		
 	}
@@ -64,4 +87,13 @@ public class AppUser {
 	public void setRoles(Collection<AppRole> roles) {
 		this.roles = roles;
 	}
+	
+	public Candidat getCandidat() {
+		return candidat;
+	}
+
+	public void setCandidat(Candidat candidat) {
+		this.candidat = candidat;
+	}
+
 }

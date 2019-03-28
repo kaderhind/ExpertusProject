@@ -19,19 +19,6 @@ public class AccountServiceImpl implements AccountService {
 	 @Autowired
 	 private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-//	public AppUser saveUser(String username, String password, String confirmedPassword) {
-//		AppUser  user=appUserRepository.findByUsername(username);
-//        if(user!=null) throw new RuntimeException("User already exists");
-//        if(!password.equals(confirmedPassword)) throw new RuntimeException("Please confirm your password");
-//        AppUser appUser=new AppUser();
-////        appUser.setUsername(username);
-////        appUser.setActived(true);
-////        appUser.setPassword(bCryptPasswordEncoder.encode(password));
-//        appUserRepository.save(appUser);
-//        addRoleToUser(username,"USER");
-//        return appUser;
-//	}
-	
 	@Override
 	public AppUser saveUser(AppUser user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

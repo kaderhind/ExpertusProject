@@ -8,5 +8,7 @@ public enum CandidatStatus {
 	reviewChallenge,
 	secondInterview,
 	rejected,
-	hired
+	hired;
+	 
+	
 }

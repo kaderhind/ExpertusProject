@@ -27,6 +27,12 @@ public class AppRole {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public AppRole(Long id, String roleName) {
 		super();
 		this.id = id;
