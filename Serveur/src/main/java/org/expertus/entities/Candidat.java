@@ -2,18 +2,30 @@ package org.expertus.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Map;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Candidat implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id 
-	@GeneratedValue
+	//@GeneratedValue
 	private Long id;
 	private String nom;
 	private String prenom;
@@ -21,19 +33,45 @@ public class Candidat implements Serializable {
 	private Date dateNaissance;
 	private String email;
 	private String telephone;
+	private String profil;
+	@Enumerated
+	private CandidatStatus status;
+	
+	
+	@JsonBackReference
+	@OneToOne
+	@MapsId
+	private AppUser appUser;
 	
 	public Candidat() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Candidat(String nom, String prenom, Date dateNaissance, String email, String telephone) {
+	public Candidat(String nom, String prenom, Date dateNaissance, String email, String telephone, String profil, CandidatStatus status) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
 		this.email = email;
 		this.telephone = telephone;
+		this.profil=profil;
+		this.status=status;
+	}
+
+	
+
+	public Candidat(Long id, String nom, String prenom, Date dateNaissance, String email, String telephone,
+			String profil, CandidatStatus status) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.email = email;
+		this.telephone = telephone;
+		this.profil = profil;
+		this.status = status;
 	}
 
 	public Long getId() {
@@ -71,6 +109,30 @@ public class Candidat implements Serializable {
 	}
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
+	}
+
+	public CandidatStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(CandidatStatus status) {
+		this.status = status;
+	}
+	
+	public AppUser getAppUser() {
+		return appUser;
+	}
+
+	public void setAppUser(AppUser appUser) {
+		this.appUser = appUser;
+	}
+
+	public String getProfil() {
+		return profil;
+	}
+
+	public void setProfil(String profil) {
+		this.profil = profil;
 	}
 	
 	

@@ -1,37 +1,73 @@
-<div>
-	
-	<p>COCO</p>
-
-</div>
-
-<!--<div class="container spacer">
+<div class="container spacer">
 	<div class="panel panel-primary" *ngIf="mode==1">
 		<div class="panel-heading"> Nouveau Candidat</div>
 		<div class="panel-body">
-			<div *ngIf="mode==1">
+			<form name="form" (ngSubmit)="f.form.valid && saveCandidat()" #f="ngForm" novalidate>
 				<div class="form-group">
-					<label class="control-labe">Nom:</label>
-					<input class="form-control" type="text" [(ngModel)]="candidat.nom">
+					<label for="nom" class="control-label">Nom:</label>
+					<input class="form-control" type="text" [(ngModel)]="candidat.nom" name="nom" #nom="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nom.invalid }" required />
 				</div>
 				<div class="form-group">
-					<label class="control-labe">Prenom:</label>
-					<input class="form-control" type="text" [(ngModel)]="candidat.prenom">
+					<div *ngIf="f.submitted && nom.invalid" class="alert alert-danger">
+                            <div *ngIf="nom.errors.required">Nom est obligatoire</div>
+                    </div>
 				</div>
-				<div class="form-group">
-					<label class="control-labe">Telephone:</label>
-					<input class="form-control" type="text" [(ngModel)]="candidat.telephone">
-				</div>
-				<div class="form-group">
-					<label class="control-labe">Email:</label>
-					<input class="form-control" type="text" [(ngModel)]="candidat.email">
-				</div>
-				<div class="form-group">
-					<label class="control-labe">Date Naissance:</label>
-					<input class="form-control" type="date" [(ngModel)]="candidat.nom">
-				</div>
-				<button class="btn btn-primary" (click)="saveCandidat()">Save</button>
-			</div>
 
+				<div class="form-group">
+					<label for="prenom" class="control-label">Prenom:</label>
+					<input class="form-control" type="text" [(ngModel)]="candidat.prenom" name="prenom" #prenom="ngModel" [ngClass]="{ 'is-invalid': f.submitted && prenom.invalid }" required />
+				</div>
+				<div class="form-group">
+					<div *ngIf="f.submitted && prenom.invalid" class="alert alert-danger">
+                            <div *ngIf="prenom.errors.required">Prenom est obligatoire</div>
+                    </div>
+				</div>
+
+				<div class="form-group">
+					<label for="telephone" class="control-label">Telephone:</label>
+					<input class="form-control" type="text" [(ngModel)]="candidat.telephone" name="telephone" #telephone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && telephone.invalid }" required minlength ="10" maxlength="10" />
+				</div>
+				<div class="form-group">
+					<div *ngIf="f.submitted && telephone.invalid" class="alert alert-danger">
+                            <div *ngIf="telephone.errors.required">Telephone est obligatoire</div>
+                             <div *ngIf="telephone.errors.maxlength || telephone.errors.minlength"> Le numero de telephone doit etre composé de 10 chiffres</div>
+                    </div>
+				</div>
+
+				<div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" [(ngModel)]="candidat.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                </div>
+                <div class="form-group">
+                	<div *ngIf="f.submitted && email.invalid" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">Email is required</div>
+                        <div *ngIf="email.errors.email">Email doit etre une adresse valide</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+					<label for="profil" class="control-label">profil:</label>
+					<input class="form-control" type="text" [(ngModel)]="candidat.profil" name="profil" #profil="ngModel" [ngClass]="{ 'is-invalid': f.submitted && profil.invalid }" required />
+				</div>
+				<div class="form-group">
+					<div *ngIf="f.submitted && profil.invalid" class="alert alert-danger">
+                            <div *ngIf="profil.errors.required">Profil candidat est obligatoire</div>
+                    </div>
+				</div>
+
+                <div class="form-group">
+					<label for="dateNaissance" class="control-label">Date Naissance:</label>
+					<input class="form-control" type="date" [(ngModel)]="candidat.dateNaissance" name="dateNaissance">
+				</div>
+
+                <div class="form-group">
+					<label class="control-labell"> Status: </label>
+					<select class="form-control" [(ngModel)]="candidat.status">
+						<option *ngFor="let p of CandidatStatus" [value]="p.status" name="status">{{p.name}}</option>
+					</select>
+				</div>
+				<button class="btn btn-primary" >Save</button>
+			</form>
 		</div>
 	</div>
 
@@ -39,30 +75,34 @@
 	<div class="panel panel-primary" *ngIf="mode==2">
 		<div class="panel-heading"> Confirmation</div>
 		<div class="panel-body">
-			<div *ngIf="mode==1">
+			<div>
 				<div class="form-group">
-					<label class="control-labe">Nom:</label>
+					<label class="control-label">Profil:</label>
+					<label>{{candidat.profil}}</label>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Nom:</label>
 					<label>{{candidat.nom}}</label>
 				</div>
 				<div class="form-group">
-					<label class="control-labe">Prenom:</label>
+					<label class="control-label">Prenom:</label>
 					<label>{{candidat.prenom}}</label>
 				</div>
 				<div class="form-group">
-					<label class="control-labe">Telephone:</label>
+					<label class="control-label">Telephone:</label>
 					<label>{{candidat.telephone}}</label>
 				</div>
 				<div class="form-group">
-					<label class="control-labe">Email:</label>
+					<label class="control-label">Email:</label>
 					<label>{{candidat.email}}</label>
 				</div>
 				<div class="form-group">
-					<label class="control-labe">Date Naissance:</label>
+					<label class="control-label">Date Naissance:</label>
 					<label>{{candidat.dateNaissance}}</label>
 				</div>
-				<button class="btn btn-primary" (click)="mode=1">Nouveau Candidat</button>
+				<button class="btn btn-primary" (click)="reset()">Back</button>
 			</div>
 
 		</div>
 	</div>
-</div>-->
+</div>

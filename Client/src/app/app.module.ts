@@ -9,13 +9,19 @@ import { AboutComponent } from './about/about.component';
 import { HttpClientModule} from '@angular/common/http';
 import { NewCandidatComponent } from './new-candidat/new-candidat.component';
 import { CandidatsService } from '../services/candidats.service';
-
+import { EditCandidatComponent } from './edit-candidat/edit-candidat.component';
+import { LoginComponent } from './login/login.component';
+import { CandidatProfilComponent } from './candidat-profil/candidat-profil.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const appRoutes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'candidats', component: CandidatsComponent },
-  { path: 'new-contact', component: NewCandidatComponent},
+  { path: 'editCandidat/:id', component: EditCandidatComponent },
+  { path: 'new-candidat', component: NewCandidatComponent},
+  { path: 'profil-candidat', component: CandidatProfilComponent},
+  { path: 'login', component: LoginComponent},
   { path: '',
-    redirectTo: '/about',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 
@@ -26,13 +32,17 @@ const appRoutes: Routes = [
     AppComponent,
     CandidatsComponent,
     AboutComponent,
-    NewCandidatComponent
+    NewCandidatComponent,
+    EditCandidatComponent,
+    LoginComponent,
+    CandidatProfilComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
    // AppRoutingModule
   ],
   providers: [CandidatsService],

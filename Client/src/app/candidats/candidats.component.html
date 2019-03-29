@@ -1,37 +1,56 @@
 <div class="container spacer">
 	<div class="panel panel-primary">
 		<div class="panel-heading"> Liste des candidats</div>
-		<div class="panel-body">
-			<div class="form-group">
-				<label>Mot Clé:</label>
-				<input type="text" [(ngModel)]="motCle"/>
-				<button class="btn btn-primary" (click)="chercher()">Chercher</button>
-			</div> 
+		<div class="panel-body" >
+			<div class="form-horizontal">
+				<div class="form-group ">
+					<label class="control-label col-sm-2">Mot Clé:</label>
+					
+					<div class="col-sm-2">
+						<input type="text" [(ngModel)]="motCle"/>
+					</div>
+					<div class="col-sm-2">
+						<button class="btn btn-primary" (click)="chercher()">Chercher par nom</button>
+					</div>
+				</div> 				
+			</div>
+			
+
 			<table class="table table-striped">
 				<tr>
 					<th>ID</th>
 					<th>nom</th>
 					<th>prenom</th>
 					<th>email</th>
+					<th>Status</th>
+					<th></th>
+					<th></th>
 				</tr>
 				<tr *ngFor="let c of pageCandidats?.content">
 					<td>{{c.id}}</td>
 					<td>{{c.nom}}</td>
 					<td>{{c.prenom}}</td>
 					<td>{{c.email}}</td>
+					<td> <h4><span  [ngClass]="getClass(c.status)">{{c.status}}</span> </h4></td>
+					<td>
+						<a  class="btn btn-info" (click)="onEditCandidat(c.id)" >
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+					</td>
+					<td>
+						<a class="btn btn-danger" (click)="onDeleteCandidat(c)">
+							<span class="glyphicon glyphicon-trash"></span>
+						</a>
+					</td>
 				</tr>
-			</table>
-
+			</table> 
+		</div>	
+		<div class="panel-footer">
+			<ul class="nav nav-pills">
+				<li class="nav-item" [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages; let i=index" class="clickable">
+					<a class="nav-link" (click)="gotoPage(i)">{{i}}</a>
+				</li>
+		    </ul>
 		</div>
 	</div>
-
-	<div class="container">
-		<ul class="nav nav-pills">
-			<li [ngClass]="{'active':i==currentPage}" *ngFor="let p of pages; let i=index"
-				class="clickable">
-				<a (click)="gotoPage(i)">{{i}}</a>
-			</li>
-		</ul>
-	</div> 
-
 </div>

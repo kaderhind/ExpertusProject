@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { CandidatsService } from 'src/services/candidats.service';
+import { Router } from '@angular/router';
+import { Candidat } from '../../model/model.candidat';
+import { AuthentificationService } from '../../services/authentification.service';
 
 
 @Component({
@@ -18,15 +21,22 @@ export class CandidatsComponent implements OnInit {
   size:number=5;
   pages:Array<number>;
 
-  constructor(public http:HttpClient, public candidatsService:CandidatsService) { }
+  constructor(public http:HttpClient, public candidatsService:CandidatsService,
+    public router:Router, private authentificationService:AuthentificationService) { }
 
-  ngOnInit() {
-  	
-  	/*this.http.get('http://localhost:8080/chercherCandidats?mc=M&&size=1&&page=0').subscribe(data=>{
-  		this.pageCandidats=data;
-  	},err=>{
-  		console.log(err);
-  	})*/
+  ngOnInit() {	
+     
+   
+        this.candidatsService.getCandidats(this.motCle,this.currentPage,this.size)
+        .subscribe((data:any)=>{
+        this.pageCandidats=data;
+        this.pages=new Array(data.totalPages);
+        console.log(this.pages);
+        },err=>{
+        console.log(err)
+        });
+
+    
   }
 
   doSearch(){
@@ -49,4 +59,36 @@ export class CandidatsComponent implements OnInit {
     this.doSearch();
   }
 
+  onEditCandidat(id:number){
+
+    this.router.navigate(['editCandidat',id]);
+
+  }
+
+  onDeleteCandidat(c:Candidat){
+
+    let confirm=window.confirm(" Est vous sure ?");
+
+    if(confirm == true){
+      
+      this.candidatsService.deleteCandidat(c.id)
+      .subscribe(data=>{
+      this.pageCandidats.content.splice(
+        this.pageCandidats.content.indexOf(c),1);
+    },err=>{
+      console.log(err);
+    })
+
+    }
+  }
+
+  getClass(status:string){
+
+    switch(status){
+      case 'hired' : return 'label label-success';
+      case 'rejected': return 'label label-danger';
+      default : return 'label label-default';
+    }
+
+  }
 }
