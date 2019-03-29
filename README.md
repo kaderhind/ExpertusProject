@@ -11,6 +11,7 @@ La présente application a pour but le suivi des candidatures de divers candidat
 #La partie Candidat:
   - Le candidat peut se connecter à l'application via son username et son mot de passe (on suppose que le username et mot de passe lui    sont envoyé à lui par mail)
   - Le candidat peut voir l'etape courante de sa candidature 
+  <img src="./Image/Capture.PNG"/>
   
    # Technologies
    
