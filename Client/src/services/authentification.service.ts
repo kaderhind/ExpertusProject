@@ -20,6 +20,7 @@ export class AuthentificationService {
   	saveToken(jwtToken: string){
 
   		this.jwtToken = jwtToken;
+      console.log("+++saveToken"+this.jwtToken);
   		localStorage.setItem('token',jwtToken);
   		this.parseJWT();
   	}

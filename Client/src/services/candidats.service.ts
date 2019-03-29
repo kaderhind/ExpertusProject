@@ -18,7 +18,10 @@ export class CandidatsService {
 
 	getCandidats(motCle:string, page:number, size:number){
 
-		return this.http.get('http://localhost:8080/chercherCandidats?mc='+motCle+'&size='+size+'&page='+page);
+		let headers=new HttpHeaders();
+		headers.append('authorization','Bearer '+this.authentificationService.jwtToken);
+		return this.http.get(this.host+'/chercherCandidats?mc='+motCle+'&size='+size+'&page='+page,
+							{headers:headers});
 	}
 
 	saveCandidat(candidat:Candidat){

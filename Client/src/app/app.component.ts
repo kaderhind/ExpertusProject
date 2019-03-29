@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   constructor(private authentificationService:AuthentificationService, private router:Router ){}
 
   ngOnInit() {
-   	this.authentificationService.loadToken();
+   //	this.authentificationService.loadToken();
   }
   
   isAdmin(){

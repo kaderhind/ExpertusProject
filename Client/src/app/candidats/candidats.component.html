@@ -1,12 +1,21 @@
 <div class="container spacer">
 	<div class="panel panel-primary">
 		<div class="panel-heading"> Liste des candidats</div>
-		<div class="panel-body">
-			<div class="form-group">
-				<label>Mot Clé:</label>
-				<input type="text" [(ngModel)]="motCle"/>
-				<button class="btn btn-primary" (click)="chercher()">Chercher par nom</button>
-			</div> 
+		<div class="panel-body" >
+			<div class="form-horizontal">
+				<div class="form-group ">
+					<label class="control-label col-sm-2">Mot Clé:</label>
+					
+					<div class="col-sm-2">
+						<input type="text" [(ngModel)]="motCle"/>
+					</div>
+					<div class="col-sm-2">
+						<button class="btn btn-primary" (click)="chercher()">Chercher par nom</button>
+					</div>
+				</div> 				
+			</div>
+			
+
 			<table class="table table-striped">
 				<tr>
 					<th>ID</th>
@@ -22,7 +31,7 @@
 					<td>{{c.nom}}</td>
 					<td>{{c.prenom}}</td>
 					<td>{{c.email}}</td>
-					<td> <span  [ngClass]="getClass(c.status)">{{c.status}}</span></td>
+					<td> <h4><span  [ngClass]="getClass(c.status)">{{c.status}}</span> </h4></td>
 					<td>
 						<a  class="btn btn-info" (click)="onEditCandidat(c.id)" >
 							<span class="glyphicon glyphicon-pencil"></span>

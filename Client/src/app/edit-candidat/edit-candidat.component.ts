@@ -13,15 +13,7 @@ export class EditCandidatComponent implements OnInit {
 	mode:number=1;
 	candidat:Candidat=new Candidat();
 	id:number;
-	/*CandidatStatus:[
-					{title:"skypeInterview",value="Skype Interview"},
-					{title:"reviewSkypeInterview", value=" Reviewing Skype Interview"},
-					{title:"sendingChallenge",value="sending Challenge"},
-					{title:"reviewChallenge",value="reviewing Challenge"},
-					{title:"secondInterview",value="second Interview"},
-					{title:"rejected",value="rejected"},
-					{title:"hired",value="hired"}
-					];*/
+	
 	CadidatStatus=['skypeInterview',
 				   'reviewSkypeInterview',
 				   'sendingChallenge',

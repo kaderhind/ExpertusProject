@@ -11,7 +11,7 @@
 				<svg width="1000" height="1000" *ngIf="candidat.status!='rejected' ; else rejectedBlock" >
 			  		<rect x="50" y="20" rx="20" ry="20" width="160" height="150" [ngClass]="getClass(candidatStatus[0].etat)" />
 
-			  		<text x="70" y="85"  class ="text">
+			  		<text x="70" y="70"  class ="text">
 			  			<tspan x="60" dy="0">Rencontre</tspan>
 						<tspan x="80" dy="1.2em">par</tspan>
 						<tspan x="70" dy="1.2em">skype</tspan>
@@ -32,22 +32,33 @@
 			    		marker-end="url(#arrow)" /> 
 
 			    	<rect x="659" y="20" rx="20" ry="20" width="160" height="150" [ngClass]="getClass(candidatStatus[2].etat)" />
-						<text x="700" y="100" style="font: bold 13px sans-serif; fill:rgb(0,0,255);">Envoi du défi</text> 	
+						<text x="659" y="25" class ="text">
+							<tspan x="700" dy="1.2em">Envoi</tspan>
+							<tspan x="720" dy="1.2em">du</tspan>
+							<tspan x="710" dy="1.2em">defi</tspan>
+						</text> 	
 
 			  		<path d="M715,229 L755,229 L735,259 z" fill="black" />
 			    	<line x1="735" y1="170" x2="735" y2="229" stroke="#000" stroke-width="5" 
 			    	marker-end="url(#arrow)" />
 
 			    	<polygon points="630,329  670,259  800,259  840,329 800,399 670,399" [ngClass]="getClass(candidatStatus[3].etat)" />
-			          <text x="680" y="330" style="font: bold 13px sans-serif; fill:rgb(0,0,255);">Revue en interne</text> 
+			          	<text x="680" y="265" class ="text">
+			          		<tspan x="700" dy="1.2em">Revue</tspan>
+							<tspan x="720" dy="1.2em">en</tspan>
+							<tspan x="700" dy="1.2em">interne</tspan>	
+			         	</text> 
 
 			        <path d="M540,309 L540,349 L510,329 z" fill="black" />
 			    	<line x1="630" y1="329" x2="540" y2="329" stroke="#000" stroke-width="5" 
 			    		marker-end="url(#arrow)" />
 
 			    	<rect x="350" y="254" rx="20" ry="20" width="160" height="150" [ngClass]="getClass(candidatStatus[4].etat)" />
-			  			<text x="380" y="320" style="font: bold 13px sans-serif; fill:rgb(0,0,255);">2eme rencontre
-			  				<tspan x="380" y="340">chez expertus</tspan>
+			  			<text x="380" y="250" class ="text">
+			  				<tspan x="365" dy="1.2em">2eme </tspan>
+							<tspan x="370" dy="1.2em"> rencontre</tspan>
+							<tspan x="375" dy="1.2em">chez</tspan>
+							<tspan x="380" dy="1.2em">expertus</tspan>
 			  			</text> 
 			  			
 			  		<path d="M260,309 L260,349 L230,329 z" fill="black" />
@@ -56,9 +67,12 @@
 
 			  		<polygon points="230,329  190,259  60,259  20,329 60,399 190,399" [ngClass]="getClass(candidatStatus[5].etat)" />
 
-			        <text x="80" y="330" style="font: bold 13px sans-serif; fill:rgb(0,0,255);" *ngIf="candidat.status!='hired' ; else elseBlock"  >Décision finale</text>
+			        <text x="80" y="280" class ="text" *ngIf="candidat.status!='hired' ; else elseBlock">
+			        	<tspan x="70" dy="1.2em">Décision </tspan>
+						<tspan x="100" dy="1.2em">finale</tspan>
+			        </text>
 			        <ng-template #elseBlock>
-						 <text x="80" y="330" style="font: bold 13px sans-serif; fill:rgb(0,0,255);">Congratulations</text>
+						 <text x="80" y="330" class ="text" >Congratulations</text>
 					</ng-template> 
 				</svg>
 
