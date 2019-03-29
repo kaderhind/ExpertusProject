@@ -20,6 +20,7 @@ export class AuthentificationService {
   	saveToken(jwtToken: string){
 
   		this.jwtToken = jwtToken;
+
   		localStorage.setItem('token',jwtToken);
   		this.parseJWT();
   	}
@@ -41,7 +42,9 @@ export class AuthentificationService {
     }
 
     isAuthenticated(){
-      return this.roles!=undefined;
+
+      return (this.roles!=undefined && this.roles.length>0);
+
     }
 
     loadToken(){
