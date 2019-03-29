@@ -13,9 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor @ToString
 public class AppRole {
 
 	@Id
