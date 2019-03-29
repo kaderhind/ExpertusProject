@@ -31,16 +31,19 @@ La présente application a pour but le suivi des candidatures de divers candidat
   
   pour installer cette application, lancer les commandes suivantes: 
   
-    https://github.com/kaderhind/ExpertusProject.git
+    git clone https://github.com/kaderhind/ExpertusProject.git
     cd ExpertusProject
     
   pour exécuter la partie serveur, cd au dossier Serveur puis lancer la commande suivante:
   
+     cd Serveur
     ./mvnw spring-boot:run
     
    pour exécuter la partie client, cd au dossier Client puis lancer la commande suivante:
    
-    npm install && npm start
+    cd Client
+    npm install 
+    npm start
  
 # Jeu de données
   - Admin: username: admin, mot de passe: 1234
