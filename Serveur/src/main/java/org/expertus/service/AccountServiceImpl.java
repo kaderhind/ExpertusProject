@@ -44,6 +44,11 @@ public class AccountServiceImpl implements AccountService {
 		
 	}
 
+	@Override
+	public void deleteUser(Long id) {
+		appUserRepository.deleteById(id);
+	}
+
 	
 
 }

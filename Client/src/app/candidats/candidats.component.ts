@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { CandidatsService } from 'src/services/candidats.service';
 import { Router } from '@angular/router';
 import { Candidat } from '../../model/model.candidat';
-
+import { AuthentificationService } from '../../services/authentification.service';
 
 
 @Component({
@@ -22,17 +22,21 @@ export class CandidatsComponent implements OnInit {
   pages:Array<number>;
 
   constructor(public http:HttpClient, public candidatsService:CandidatsService,
-    public router:Router) { }
+    public router:Router, private authentificationService:AuthentificationService) { }
 
   ngOnInit() {	
-    this.candidatsService.getCandidats(this.motCle,this.currentPage,this.size)
-    .subscribe((data:any)=>{
-      this.pageCandidats=data;
-      this.pages=new Array(data.totalPages);
-      console.log(this.pages);
-    },err=>{
-      console.log(err)
-    });
+     
+   
+        this.candidatsService.getCandidats(this.motCle,this.currentPage,this.size)
+        .subscribe((data:any)=>{
+        this.pageCandidats=data;
+        this.pages=new Array(data.totalPages);
+        console.log(this.pages);
+        },err=>{
+        console.log(err)
+        });
+
+    
   }
 
   doSearch(){

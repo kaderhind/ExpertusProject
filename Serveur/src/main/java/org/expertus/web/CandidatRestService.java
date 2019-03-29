@@ -70,7 +70,8 @@ public class CandidatRestService {
 	
 	@RequestMapping(value="/candidats/{id}", method=RequestMethod.DELETE)
 	public void supprimer(@PathVariable Long id) {
-		candidatRepository.deleteById(id); 
+		accountService.deleteUser(id);
+	//	candidatRepository.deleteById(id); 
 		
 	}
 	

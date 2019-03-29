@@ -55,6 +55,9 @@ public class CandidatRestServiceTest {
 	@Mock
 	private CandidatRepository candidatRepository;
 	
+	@Mock
+	private AccountService accountService;
+	
 	
 	private DateFormat df= new SimpleDateFormat("dd/MM/yyyy");
 	@Before
@@ -106,11 +109,11 @@ public class CandidatRestServiceTest {
 	@Test
 	public void deleteCandidatTest() throws Exception{
 		   Candidat candidat = new Candidat((long) 1,"sara", "sara", df.parse("25/07/1993"), "sara@gmail.com", "+212678583629","Developpeur Java",CandidatStatus.hired);		
-		   doNothing().when(candidatRepository).deleteById(candidat.getId());
+		   doNothing().when(accountService).deleteUser((candidat.getId()));
 		   mockMvc.perform(delete("/candidats/{id}",candidat.getId()))
 			.andExpect(status().isOk());
-			verify(candidatRepository,times(1)).deleteById(candidat.getId());
-			verifyNoMoreInteractions(candidatRepository);
+			verify(accountService,times(1)).deleteUser((candidat.getId()));
+			verifyNoMoreInteractions(accountService);
 		   
 	}
 	

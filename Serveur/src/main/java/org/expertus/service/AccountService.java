@@ -9,4 +9,5 @@ public interface AccountService {
 	 public AppRole saveRole(AppRole role);
 	 public AppUser loadUserByUsername(String username);
 	 public void addRoleToUser(String username,String rolename);
+	 public void deleteUser(Long id);
 }

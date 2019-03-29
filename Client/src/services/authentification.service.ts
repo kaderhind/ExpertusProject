@@ -42,7 +42,7 @@ export class AuthentificationService {
     }
 
     isAuthenticated(){
-      return this.roles!=undefined;
+      return (this.roles!=undefined && this.roles.length>0);
     }
 
     loadToken(){

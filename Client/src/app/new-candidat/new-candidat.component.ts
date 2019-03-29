@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidat } from '../../model/model.candidat';
 import { CandidatsService } from '../../services/candidats.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-candidat',
@@ -22,7 +23,7 @@ export class NewCandidatComponent implements OnInit {
   ]
 
   mode:number=1;
-  constructor(public candidatsService: CandidatsService) { }
+  constructor(public candidatsService: CandidatsService, public router:Router) { }
 
   ngOnInit() {
   }
@@ -40,6 +41,7 @@ export class NewCandidatComponent implements OnInit {
   reset(){
     this.candidat=null;
     this.mode=1;
+    this.router.navigate(['candidats']);
   }
 
 }

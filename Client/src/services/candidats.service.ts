@@ -33,8 +33,9 @@ export class CandidatsService {
 	}
 
 	deleteCandidat(id:number){
-		let headers=new HttpHeaders({'authorization':this.authentificationService.jwtToken});
-		return this.http.delete("http://localhost:8080/candidats/"+id,{headers:headers});
+		
+		//let headers=new HttpHeaders({'authorization':'Bearer'+this.authentificationService.jwtToken});
+		return this.http.delete("http://localhost:8080/candidats/"+id);
 	}
 
 	getCandidat(id:number):Observable<any>{
